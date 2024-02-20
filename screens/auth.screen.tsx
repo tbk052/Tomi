@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
+  BackHandler,
   Image,
   ImageBackground,
   Text,
@@ -13,6 +14,18 @@ import AccountCheck from '../components/accountcheck';
 
 const AuthScreen = () => {
   const [loginComponent, setLoginComponent] = useState('');
+  useEffect(() => {
+    const backAction = () => {
+      setLoginComponent('');
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+    return () => backHandler.remove();
+  }, []);
   return (
     <ImageBackground
       source={require('../res/img/tomi-background.png')}

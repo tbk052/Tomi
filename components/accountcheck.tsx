@@ -1,11 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
+import Animated, {SlideInDown} from 'react-native-reanimated';
 
-const AccountCheck = ({onChangeState}) => {
+const AccountCheck = ({onChangeState}: any) => {
   return (
-    <View
-      style={{alignItems: 'center', paddingBottom: 30, paddingHorizontal: 20}}>
+    <Animated.View
+      entering={SlideInDown.delay(200).duration(500)}
+      style={{alignItems: 'center', paddingBottom: 33, paddingHorizontal: 20}}>
       <TouchableOpacity
         onPress={() => {
           onChangeState();
@@ -36,7 +38,7 @@ const AccountCheck = ({onChangeState}) => {
         }}>
         <Text style={{fontSize: 19, fontWeight: '500'}}>ĐĂNG KÝ</Text>
       </TouchableOpacity>
-    </View>
+    </Animated.View>
   );
 };
 
