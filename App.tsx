@@ -7,15 +7,17 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
-import AuthScreen from './screens/authscreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import RootStack from './navigators/root.stack';
+import {NavigationContainer} from '@react-navigation/native';
 
 function App() {
   return (
-    <View style={{flex: 1}}>
-      {/* <AppStack /> */}
-      <AuthScreen />
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

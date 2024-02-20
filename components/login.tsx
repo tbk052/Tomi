@@ -1,31 +1,23 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useRef} from 'react';
+import {useNavigation} from '@react-navigation/native';
+import React from 'react';
 import {
-  Animated,
   Image,
-  StyleSheet,
+  // StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
+import Animated, {SlideInLeft, SlideInRight} from 'react-native-reanimated';
 
 const Login = () => {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  const fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-  };
+  const navigation: any = useNavigation();
   return (
     <View style={{paddingHorizontal: 30}}>
       <Animated.View
+        entering={SlideInLeft.duration(400)}
         style={{
-          opacity: fadeAnim,
           flexDirection: 'row',
           marginBottom: 15,
           borderRadius: 10,
@@ -55,7 +47,9 @@ const Login = () => {
         />
       </Animated.View>
 
-      <View style={{flexDirection: 'row'}}>
+      <Animated.View
+        entering={SlideInRight.duration(400)}
+        style={{flexDirection: 'row'}}>
         <View
           style={{
             flex: 2.5,
@@ -88,7 +82,7 @@ const Login = () => {
         </View>
         <TouchableOpacity
           onPress={() => {
-            fadeIn();
+            navigation.navigate('TwoFactorsAuthen', {name: 'TwoFactorsAuthen'});
           }}
           activeOpacity={0.8}
           style={{
@@ -100,7 +94,7 @@ const Login = () => {
           }}>
           <Text style={{fontSize: 19, fontWeight: 'bold'}}>ĐĂNG NHẬP</Text>
         </TouchableOpacity>
-      </View>
+      </Animated.View>
       <View
         style={{
           paddingTop: 10,
@@ -151,14 +145,14 @@ const Login = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  topTabbar: {
-    backgroundColor: '#888888',
-    flex: 1,
-    marginRight: 5,
-    height: 4,
-    borderRadius: 14,
-    alignSelf: 'center',
-  },
-});
+// const styles = StyleSheet.create({
+//   topTabbar: {
+//     backgroundColor: '#888888',
+//     flex: 1,
+//     marginRight: 5,
+//     height: 4,
+//     borderRadius: 14,
+//     alignSelf: 'center',
+//   },
+// });
 export default Login;
