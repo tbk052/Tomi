@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React from 'react';
 import {FlatList, Text, TouchableOpacity} from 'react-native';
 
 const keys = [
@@ -53,14 +53,11 @@ const keys = [
   },
 ];
 
-type ItemProps = {name: string};
-
-const Keyboard = ({name}: ItemProps) => {
-  const [keyInput, setKeyInput] = useState('');
+const Keyboard = ({getKeyInput, name}: any) => {
   return (
     <TouchableOpacity
       onPress={() => {
-        //   setKeyInput(keyInput + keyInput);
+        getKeyInput((pre: string) => pre + name);
       }}
       style={{
         flex: 1,
@@ -75,13 +72,12 @@ const Keyboard = ({name}: ItemProps) => {
   );
 };
 
-const VirtualKeyboard = ({updateKeyInput}) => {
-  //   setKeyInput(pre => pre + keyInput);
+const VirtualKeyboard = ({getKeyInput}: any) => {
   return (
     <FlatList
       data={keys}
       renderItem={({item}) => (
-        <Keyboard updateKeyInput={setKeyInput} name={item.name} />
+        <Keyboard getKeyInput={getKeyInput} name={item.name} />
       )}
       numColumns={3}
       keyExtractor={item => item.name}

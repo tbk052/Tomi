@@ -2,12 +2,32 @@
 import React from 'react';
 import {Text, TextInput, TouchableOpacity, View} from 'react-native';
 import VirtualKeyboard from '../components/virtual-keyboard';
+import {useNavigation} from '@react-navigation/native';
 
 const TwoFactorsAuthen = () => {
+  const [resendOTP, setResendOTP] = React.useState();
+  const [otpInput, setOtpInput] = React.useState('');
+  const navigation: any = useNavigation();
+
+  const getKeyInput = (keyInput: React.SetStateAction<string>) => {
+    setOtpInput(keyInput);
+  };
+  const handleOtp = () => {
+    if (otpInput.includes('Xóa') === true) {
+      setOtpInput(pre => pre.slice(0, -4));
+    }
+    if (otpInput.length === 4 && otpInput.includes('Xóa') === false) {
+      navigation.replace('MainStack', {screen: 'AppTab'});
+    }
+    console.log('stop it');
+  };
+  React.useEffect(() => {
+    handleOtp();
+  });
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 0.6, marginTop: 5}}>
-        <View style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{flex: 0.7, backgroundColor: '#f5e4ee'}}>
+        <View style={{flex: 1, paddingTop: 10, flexDirection: 'row'}}>
           <TouchableOpacity
             style={{
               flex: 1,
@@ -52,31 +72,36 @@ const TwoFactorsAuthen = () => {
         <TextInput
           showSoftInputOnFocus={false}
           autoFocus={true}
+          value={otpInput}
+          maxLength={4}
           style={{
             borderWidth: 0.5,
             width: '80%',
             height: '10%',
             textAlign: 'center',
+            fontSize: 18,
           }}
         />
-        <Text
-          style={{
-            color: '#36d19e',
-            fontSize: 17,
-            fontWeight: '500',
-            paddingVertical: 20,
-            textDecorationLine: 'underline',
-            textDecorationStyle: 'solid',
-            textDecorationColor: '#36d19e',
-          }}>
-          Gửi lại mã OTP
-        </Text>
+        <TouchableOpacity activeOpacity={0.6}>
+          <Text
+            style={{
+              color: '#36d19e',
+              fontSize: 17,
+              fontWeight: '500',
+              paddingVertical: 20,
+              textDecorationLine: 'underline',
+              textDecorationStyle: 'solid',
+              textDecorationColor: '#36d19e',
+            }}>
+            Gửi lại mã OTP
+          </Text>
+        </TouchableOpacity>
         <Text style={{paddingHorizontal: '12%', textAlign: 'center'}}>
           Vui lòng không tiết lộ OTP của bạn cho bất kỳ ai kể cả nhân viên Tomi
         </Text>
       </View>
       <View style={{flex: 1}}>
-        <VirtualKeyboard />
+        <VirtualKeyboard getKeyInput={getKeyInput} />
       </View>
     </View>
   );
