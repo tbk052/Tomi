@@ -1,16 +1,27 @@
-import {useNavigation} from '@react-navigation/native';
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, Text, View} from 'react-native';
 
 const HomeScreen = () => {
-  const navigation: any = useNavigation();
   return (
-    <TouchableOpacity
-      onPress={() => {
-        navigation.navigate('TestScreen');
-      }}>
-      <Text>Hello World</Text>
-    </TouchableOpacity>
+    <ScrollView
+      contentContainerStyle={{flex: 1, backgroundColor: 'darkorange'}}>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
+        <Text>Hello World</Text>
+      </View>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
+        <Text>Hello World</Text>
+      </View>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
+        <Text>Hello World</Text>
+      </View>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
+        <Text>Hello World</Text>
+      </View>
+      <View style={{flex: 1, backgroundColor: 'green'}}>
+        <Text>Hello World</Text>
+      </View>
+    </ScrollView>
   );
 };
 export default HomeScreen;

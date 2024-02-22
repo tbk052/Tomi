@@ -5,7 +5,7 @@ import VirtualKeyboard from '../components/virtual-keyboard';
 import {useNavigation} from '@react-navigation/native';
 
 const TwoFactorsAuthen = () => {
-  const [resendOTP, setResendOTP] = React.useState();
+  // const [resendOTP, setResendOTP] = React.useState();
   const [otpInput, setOtpInput] = React.useState('');
   const navigation: any = useNavigation();
 
@@ -39,7 +39,7 @@ const TwoFactorsAuthen = () => {
           </TouchableOpacity>
           <View
             style={{
-              flex: 2.5,
+              flex: 5,
               alignItems: 'center',
               justifyContent: 'center',
             }}>
@@ -49,7 +49,7 @@ const TwoFactorsAuthen = () => {
           </View>
           <TouchableOpacity
             style={{
-              flex: 1,
+              flex: 1.5,
               alignItems: 'flex-end',
               paddingRight: 20,
               justifyContent: 'center',
