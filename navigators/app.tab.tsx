@@ -36,10 +36,11 @@ const AppTab = () => {
               textTransform: 'uppercase',
               fontSize: 18,
               fontWeight: 'bold',
+              color: '#000000',
             }}>
             THANH BINH
           </Text>
-          <View style={{flexDirection: 'row', paddingTop: 5}}>
+          <TouchableOpacity style={{flexDirection: 'row', paddingTop: 5}}>
             <Icon name={'shield-cat'} size={24} color={'#ffa02b'} />
             <Text
               style={{
@@ -51,7 +52,7 @@ const AppTab = () => {
               }}>
               123 điểm Tomi
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{

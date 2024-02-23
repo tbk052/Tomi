@@ -13,10 +13,10 @@ const TwoFactorsAuthen = () => {
     setOtpInput(keyInput);
   };
   const handleOtp = () => {
-    if (otpInput.includes('Xóa') === true) {
+    if (otpInput.includes('Xóa')) {
       setOtpInput(pre => pre.slice(0, -4));
     }
-    if (otpInput.length === 4 && otpInput.includes('Xóa') === false) {
+    if (otpInput.length === 4 && !otpInput.includes('Xóa')) {
       navigation.replace('MainStack', {screen: 'AppTab'});
     }
     console.log('stop it');
