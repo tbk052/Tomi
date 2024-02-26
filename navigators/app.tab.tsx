@@ -9,6 +9,7 @@ import ExperienceScreen from '../screens/experience.screen';
 import ExploreScreen from '../screens/explore.screen';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
+import userProfile from '../data/userprofile';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +39,7 @@ const AppTab = () => {
               fontWeight: 'bold',
               color: '#000000',
             }}>
-            THANH BINH
+            {userProfile.displayName}
           </Text>
           <TouchableOpacity style={{flexDirection: 'row', paddingTop: 5}}>
             <Icon name={'shield-cat'} size={24} color={'#ffa02b'} />
@@ -50,7 +51,7 @@ const AppTab = () => {
                 paddingLeft: 5,
                 paddingTop: 2,
               }}>
-              123 điểm Tomi
+              {userProfile.tomiPoints} điểm Tomi
             </Text>
           </TouchableOpacity>
         </View>

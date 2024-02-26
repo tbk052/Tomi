@@ -8,6 +8,8 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
+import {ImageSlider} from 'react-native-image-slider-banner';
+import userProfile from '../data/userprofile';
 const HomeScreen = () => {
   return (
     <ScrollView>
@@ -32,13 +34,13 @@ const HomeScreen = () => {
                   textDecorationStyle: 'solid',
                   textDecorationColor: 'darkgreen',
                 }}>
-                1234567891011
+                {userProfile.bankAccountNum}
               </Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity>
             <Text style={{fontSize: 17, fontWeight: 'bold'}}>
-              123.000.000 vnd
+              {userProfile.mainbalance} vnd
             </Text>
           </TouchableOpacity>
         </View>
@@ -111,7 +113,9 @@ const HomeScreen = () => {
       <TouchableOpacity style={styles.mainItem}>
         <View style={{flexDirection: 'row'}}>
           <Text style={[styles.heading, {flex: 1}]}>Hũ tiết kiệm</Text>
-          <Text style={{fontSize: 17, fontWeight: 'bold'}}>0.000 vnd</Text>
+          <Text style={{fontSize: 17, fontWeight: 'bold'}}>
+            {userProfile.subBalances} vnd
+          </Text>
         </View>
         <Text>Dong buồm ra khơi, tiết kiệm ngay thôi !!! 🫡</Text>
         <Text
@@ -125,12 +129,90 @@ const HomeScreen = () => {
           Bạn chưa có hũ tiết kiệm nào.
         </Text>
       </TouchableOpacity>
-      <View style={styles.mainItem}>
-        <Text style={styles.heading}>Cùng Tomi khám phá</Text>
+      <View style={{margin: '3%', borderRadius: 14, backgroundColor: 'white'}}>
+        <Text style={[styles.heading, {padding: '3%'}]}>
+          Cùng Tomi khám phá
+        </Text>
+        <ImageSlider
+          data={[
+            {img: require('../res/img/tomi-banner-1.png')},
+            {img: require('../res/img/tomi-banner-2.png')},
+            {img: require('../res/img/tomi-banner-3.png')},
+          ]}
+          localImg={true}
+          autoPlay={true}
+          timer={6000}
+          closeIconColor="yellow"
+          caroselImageStyle={{
+            marginVertical: -30,
+          }}
+        />
       </View>
       <View style={styles.mainItem}>
-        <Text style={styles.heading}>Quản lý tài khoản</Text>
-        <Icon name={'mobile'} size={20} />
+        <Text style={styles.heading}>Quản lý</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            paddingVertical: '5%',
+            height: 80,
+          }}>
+          <View style={{flex: 0.7}} />
+          <TouchableOpacity style={styles.mainAccount}>
+            <Icon name={'user'} size={22} />
+          </TouchableOpacity>
+          <View style={{flex: 0.7}} />
+          <TouchableOpacity style={styles.mainAccount}>
+            <Icon name={'lock'} size={22} />
+          </TouchableOpacity>
+          <View style={{flex: 0.7}} />
+          <TouchableOpacity style={styles.mainAccount}>
+            <Icon name={'bullhorn'} size={22} />
+          </TouchableOpacity>
+          <View style={{flex: 0.7}} />
+          <TouchableOpacity style={styles.mainAccount}>
+            <Icon name={'gears'} size={22} />
+          </TouchableOpacity>
+          <View style={{flex: 0.7}} />
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginTop: '-2%',
+          }}>
+          <View style={{flex: 0.4}} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+            }}>
+            <Text style={{textAlign: 'center'}}>Tài khoản</Text>
+          </View>
+          <View style={{flex: 0.4}} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+            }}>
+            <Text style={{textAlign: 'center'}}>Phương thức bảo mật</Text>
+          </View>
+          <View style={{flex: 0.4}} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+            }}>
+            <Text style={{textAlign: 'center'}}>Thông báo</Text>
+          </View>
+          <View style={{flex: 0.4}} />
+          <View
+            style={{
+              flex: 1,
+              alignItems: 'center',
+            }}>
+            <Text style={{textAlign: 'center'}}>Cài đặt</Text>
+          </View>
+          <View style={{flex: 0.4}} />
+        </View>
       </View>
     </ScrollView>
   );
