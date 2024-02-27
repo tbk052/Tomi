@@ -22,7 +22,9 @@ const TwoFactorsAuthen = () => {
     console.log('stop it');
   };
   React.useEffect(() => {
-    handleOtp();
+    if (otpInput.length === 4) {
+      handleOtp();
+    }
   });
   return (
     <View style={{flex: 1}}>

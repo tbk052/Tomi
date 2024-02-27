@@ -10,7 +10,9 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import userProfile from '../data/userprofile';
+import {useNavigation} from '@react-navigation/native';
 const HomeScreen = () => {
+  const navigation: any = useNavigation();
   return (
     <ScrollView>
       <View style={styles.mainItem}>
@@ -60,7 +62,11 @@ const HomeScreen = () => {
               <Icon name={'clock-rotate-left'} size={22} />
             </TouchableOpacity>
             <View style={{flex: 0.7}} />
-            <TouchableOpacity style={styles.mainAccount}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate('ManageScreen');
+              }}
+              style={styles.mainAccount}>
               <Icon name={'chart-column'} size={22} />
             </TouchableOpacity>
             <View style={{flex: 0.7}} />
