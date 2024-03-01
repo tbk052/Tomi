@@ -16,9 +16,6 @@ import Users from '../data/users';
 // const TransferenceScreen = () => {
 //   const userData = Users;
 
-//   const [open, setOpen] = useState(false);
-//   const [value, setValue] = useState(null);
-//   const [items, setItems] = useState([{label: 'Tomi', value: 'tomi'}]);
 //   const [userName, setUserName] = useState('');
 //   const [bankNumberInput, setBankNumberInput] = useState('');
 //   const [virtualKeyState, setVirtualKeyState] = useState(false);
