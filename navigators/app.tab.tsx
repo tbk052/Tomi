@@ -7,10 +7,11 @@ import ManageScreen from '../screens/manage.screen';
 import TransferenceScreen from '../screens/transference.screen';
 import ExperienceScreen from '../screens/experience.screen';
 import ExploreScreen from '../screens/explore.screen';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome6';
 import userProfile from '../data/userprofile';
 
+const {width, height} = Dimensions.get('window');
 const Tab = createBottomTabNavigator();
 
 interface TomiIconType {
@@ -23,7 +24,7 @@ const TomiIcon = ({name, props}: TomiIconType) => {
 
 const AppTab = () => {
   return (
-    <View style={{flex: 1, backgroundColor: '#f2f2f2'}}>
+    <View style={{width, height, backgroundColor: '#f2f2f2'}}>
       <View style={{height: '12%', flexDirection: 'row', paddingTop: 10}}>
         <TouchableOpacity style={{flex: 1}}>
           <Image
@@ -106,6 +107,7 @@ const AppTab = () => {
           tabBarStyle: {
             height: '10%',
             paddingTop: '2%',
+            marginBottom: 25,
             borderTopLeftRadius: 30,
             borderTopRightRadius: 30,
             borderTopWidth: 3,
