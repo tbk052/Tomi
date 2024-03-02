@@ -1,7 +1,7 @@
 const userProfile = {
   fullName: 'PHAM DINH THANH BINH',
   fullVNName: 'Phạm Đình Thanh Bình',
-  displayName: 'PHAM DINH THANH BINH',
+  displayName: 'THANH BINH',
   avatar: '../res/img/tomi-mascot.png',
   tomiPoints: 123,
   bankAccountNum: 1234567891011,
