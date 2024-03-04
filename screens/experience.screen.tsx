@@ -8,7 +8,7 @@ const ExperienceScreen = () => {
     <View style={{flex: 1, paddingVertical: 30, paddingHorizontal: 20}}>
       <View style={{flexDirection: 'row', marginBottom: 10}}>
         <Text style={{flex: 1, fontSize: 18, color: '#000', fontWeight: '700'}}>
-          Đặc Quyền Tomi Point
+          Đặc Quyền Tomi Points
         </Text>
         <TouchableOpacity
           onPress={() => {
