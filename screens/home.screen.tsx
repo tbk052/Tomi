@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -11,8 +11,17 @@ import Icon from 'react-native-vector-icons/FontAwesome6';
 import {ImageSlider} from 'react-native-image-slider-banner';
 import userProfile from '../data/userprofile';
 import {useNavigation} from '@react-navigation/native';
+import useUserAPI from '../data/API/userAPI';
+
 const HomeScreen = () => {
+  const {getUserAPI, items} = useUserAPI();
   const navigation: any = useNavigation();
+  useEffect(() => {
+    getUserAPI();
+  }, []);
+
+  console.log(items);
+
   return (
     <ScrollView>
       <View style={styles.mainItem}>
